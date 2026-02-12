@@ -4,4 +4,20 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.football-data.org/v4',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+      '/sports-api': {
+        target: 'https://v3.football.api-sports.io',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/sports-api/, ''),
+      },
+    },
+  },
 })

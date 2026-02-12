@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://api.football-data.org/v4',
+  baseURL: '/sports-api',
   headers: {
-    'X-Auth-Token': 'YOUR_API_KEY_HERE' // Replace with your actual API key
+    'x-apisports-key': import.meta.env.VITE_FOOTBALL_DATA_API_KEY
   }
 });
 

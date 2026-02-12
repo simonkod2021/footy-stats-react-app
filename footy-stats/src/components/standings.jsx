@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { useEffect, useState } from "react";
+
 const StyledTable = styled.table`
     width: 50%;
     margin: 1rem auto;
@@ -45,22 +47,30 @@ const StyledDiv = styled.div`
 `
 
 export const Standings = () => {
+    const [standings, setStandings] = useState([]);
+
+    useEffect(() => {
+        const getStandings = async () => {
+            const data = await fetchPLStandings();
+            console.log("Fetched standings data:", data);
+            setStandings(data?.standings?.[0]?.table ?? []);
+        };
+
+        getStandings();
+    }, []);
+
     return (
         <>
         <StyledDiv>
-            <h2>Premier League Standings</h2>
+            <h2>Premier League Top Scorers</h2>
         </StyledDiv>
         <StyledTable>
             <tbody> 
-                <tr><td>1. Manchester City</td></tr>
-                <tr><td>2. Arsenal</td></tr>
-                <tr><td>3. Manchester United</td></tr>
-                <tr><td>4. Newcastle United</td></tr>
-                <tr><td>5. Brighton & Hove Albion</td></tr>
-                <tr><td>6. Brentford</td></tr>
-                <tr><td>7. Fulham</td></tr>
-                <tr><td>8. Crystal Palace</td></tr>
-                <tr><td>9. Liverpool</td></tr>
+                {standings.map((team, index) => (
+                    <tr key={team.team?.id ?? index}>
+                        <td>{index + 1}. {team.team?.name ?? "Unknown"}</td>
+                    </tr>
+                ))}
             </tbody>
         </StyledTable>
         </>

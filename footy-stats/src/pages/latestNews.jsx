@@ -3,7 +3,7 @@ import styled from "styled-components"
 const NewsContainer = styled.div`
     width: 80%;
     margin: 1rem auto;
-    background-color: #fff;
+    background: linear-gradient(135deg, #ffffff, #000000);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -11,6 +11,10 @@ const NewsContainer = styled.div`
     h2 {
         margin-top: 0;
         color: #333;
+        text-align: center;
+        font-size: 5rem;
+        background: -webkit-linear-gradient(45deg, #ffffff, #000000);
+        -webkit-background-clip: text;
     }
 
     p {
@@ -22,10 +26,7 @@ const NewsContainer = styled.div`
 export const LatestNews = () => {
     return (
         <NewsContainer>
-            <h2>Latest News</h2>
-            <p>Manchester City wins the Premier League title!</p>
-            <p>Arsenal secures a Champions League spot.</p>
-            <p>Newcastle United's impressive run continues.</p>
+            <h2>Page in progress</h2>
         </NewsContainer>
     )
 }

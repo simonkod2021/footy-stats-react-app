@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const StyledHeader = styled.header`
-    background-color: #333;
+    background-color: #555;
     color: #fff;
     padding: 1rem;
     text-align: center;
@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
 `;
 
 const StyledButton = styled.button`
-    background-color: #555;
+    background-color: #444;
     color: #fff;
     border: none;
     padding: 0.5rem 1rem;
@@ -51,6 +51,9 @@ export const CustomHeader = () => {
             <StyledButtonContainer>
                 <StyledButton onClick={() => navigate('/')}>Home</StyledButton>
                 <StyledButton onClick={() => navigate('/news')}>Latest News</StyledButton>
+                <StyledButton onClick={() => navigate('/top-scorers')}>Top Scorers</StyledButton>
+                <StyledButton onClick={() => navigate('/leagues')}>Leagues</StyledButton>
+
             </StyledButtonContainer>
         </StyledHeader>
         </>
